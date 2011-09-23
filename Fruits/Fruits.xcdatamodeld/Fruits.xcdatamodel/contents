@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Fruits" representedClassName="Fruits">
+        <attribute name="fruitNote" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="pricePerKilogram" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+    </entity>
+    <elements>
+        <element name="Fruits" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>
