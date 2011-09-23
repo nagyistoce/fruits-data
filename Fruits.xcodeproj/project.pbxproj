@@ -19,6 +19,10 @@
 		AE120A94142722300016FBC7 /* Fruits.m in Sources */ = {isa = PBXBuildFile; fileRef = AE120A93142722300016FBC7 /* Fruits.m */; };
 		AE120A97142722440016FBC7 /* FruitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE120A96142722440016FBC7 /* FruitsViewController.m */; };
 		AE120A9A142722D70016FBC7 /* AddNewFruitInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE120A99142722D70016FBC7 /* AddNewFruitInformationViewController.m */; };
+		AED7F877142C37C0003522F6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7F873142C37C0003522F6 /* Icon-72.png */; };
+		AED7F878142C37C0003522F6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7F874142C37C0003522F6 /* Icon.png */; };
+		AED7F879142C37C0003522F6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7F875142C37C0003522F6 /* Icon@2x.png */; };
+		AED7F87A142C37C0003522F6 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = AED7F876142C37C0003522F6 /* iTunesArtwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		AE120A98142722D70016FBC7 /* AddNewFruitInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewFruitInformationViewController.h; sourceTree = "<group>"; };
 		AE120A99142722D70016FBC7 /* AddNewFruitInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewFruitInformationViewController.m; sourceTree = "<group>"; };
 		AE120A9B142722EC0016FBC7 /* FruitInformDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FruitInformDelegate.h; sourceTree = "<group>"; };
+		AED7F873142C37C0003522F6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		AED7F874142C37C0003522F6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		AED7F875142C37C0003522F6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		AED7F876142C37C0003522F6 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		AE120A7B142721EE0016FBC7 /* Fruits */ = {
 			isa = PBXGroup;
 			children = (
+				AED7F871142C37B0003522F6 /* Resources */,
 				AE120A84142721EE0016FBC7 /* FruitsAppDelegate.h */,
 				AE120A85142721EE0016FBC7 /* FruitsAppDelegate.m */,
 				AE120A87142721EE0016FBC7 /* MainWindow.xib */,
@@ -115,6 +124,17 @@
 				AE120A83142721EE0016FBC7 /* Fruits-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AED7F871142C37B0003522F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AED7F873142C37C0003522F6 /* Icon-72.png */,
+				AED7F874142C37C0003522F6 /* Icon.png */,
+				AED7F875142C37C0003522F6 /* Icon@2x.png */,
+				AED7F876142C37C0003522F6 /* iTunesArtwork */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +189,10 @@
 			files = (
 				AE120A80142721EE0016FBC7 /* InfoPlist.strings in Resources */,
 				AE120A89142721EE0016FBC7 /* MainWindow.xib in Resources */,
+				AED7F877142C37C0003522F6 /* Icon-72.png in Resources */,
+				AED7F878142C37C0003522F6 /* Icon.png in Resources */,
+				AED7F879142C37C0003522F6 /* Icon@2x.png in Resources */,
+				AED7F87A142C37C0003522F6 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +320,7 @@
 				AE120A91142721EE0016FBC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
