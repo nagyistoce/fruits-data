@@ -68,12 +68,20 @@
     
     self.navigationController.toolbarHidden = NO;
     
-    UIBarButtonItem *addNewFruit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewFruitToList)];
+    // Create button for add a new fruit
+    // put it to the toolbar bar, then release it.
+    // target for this class and action point to -addNewFruitToList method
+    UIBarButtonItem *addNewFruit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                                 target:self 
+                                                                                 action:@selector(addNewFruitToList)];
     
     self.toolbarItems = [NSArray arrayWithObject:addNewFruit];
     
     [addNewFruit release];
     
+    // fetch data from core data
+    // It required to send memory address of error object to controller.
+    // By this way, you should not do try...catch for error handler.
     NSError *error = nil;
     [self.fruitsFetchedResultController performFetch:&error];
     if (error != nil) {
@@ -104,6 +112,7 @@
 
 - (void)addNewFruitToList
 {
+    // Create new controller for add fruit, and set delegate of the new view controller to this class (self)
     AddNewFruitInformationViewController *newFruit = [[AddNewFruitInformationViewController alloc] initWithStyle:UITableViewStyleGrouped];
     newFruit.delegate = self;
     
@@ -117,38 +126,54 @@
 
 - (void)dealloc
 {
+    // Clean up memory
     [self setManagedObjectContext:nil];
     [_fruitsFetchedResultController release];
+    [self setFruitsFetchedResultController:nil];
     
     [super dealloc];
 }
 
+// Accessory method for fruitsFetchedresultcontroller (getter)
 - (NSFetchedResultsController *)fruitsFetchedResultController
 {
-    if (_fruitsFetchedResultController != nil) {
-        return _fruitsFetchedResultController;
+    // everytime, I have to check _fruitsFetchedResultController empty or not.
+    if (_fruitsFetchedResultController == nil) {
+        // If it right (_fruitesFetchedResultController empty)
+        // I will start with create fetch request object for send to NSFetchedResultsController for fetch data
+        //
+        // In NSFetchRequest 
+        // There are 3 things required
+        // 1. entity
+        // 2. condition for sort data [sortDescriptors]
+        // 3. predicate, nil is default if you want it all [predicate]
+        NSFetchRequest *fruitRequest = [[NSFetchRequest alloc] init];
+        fruitRequest.entity = [NSEntityDescription entityForName:@"Fruits" 
+                                          inManagedObjectContext:self.managedObjectContext];
+        
+        NSSortDescriptor *sortByPrice = [[NSSortDescriptor alloc] initWithKey:@"pricePerKilogram" 
+                                                                    ascending:NO];
+        NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" 
+                                                                   ascending:YES];
+        
+        fruitRequest.sortDescriptors = [NSArray arrayWithObjects:sortByPrice, sortByName, nil];
+        
+        fruitRequest.predicate = nil;
+        
+        NSFetchedResultsController *fetchResults = [[NSFetchedResultsController alloc] initWithFetchRequest:fruitRequest 
+                                                                                       managedObjectContext:self.managedObjectContext 
+                                                                                         sectionNameKeyPath:nil 
+                                                                                                  cacheName:@"Fruit"];
+        
+        fetchResults.delegate = self;
+        
+        self.fruitsFetchedResultController = fetchResults;
+        
+        [fetchResults release];
+        [fruitRequest release];
+        [sortByName release];
+        [sortByPrice release];
     }
-    
-    NSFetchRequest *fruitRequest = [[NSFetchRequest alloc] init];
-    fruitRequest.entity = [NSEntityDescription entityForName:@"Fruits" inManagedObjectContext:self.managedObjectContext];
-    
-    NSSortDescriptor *sortByPrice = [[NSSortDescriptor alloc] initWithKey:@"pricePerKilogram" ascending:NO];
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    fruitRequest.sortDescriptors = [NSArray arrayWithObjects:sortByPrice, sortByName, nil];
-    
-    fruitRequest.predicate = nil;
-    
-    NSFetchedResultsController *fetchResults = [[NSFetchedResultsController alloc] initWithFetchRequest:fruitRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Fruit"];
-    
-    fetchResults.delegate = self;
-    
-    self.fruitsFetchedResultController = fetchResults;
-    
-    [fetchResults release];
-    [fruitRequest release];
-    [sortByName release];
-    [sortByPrice release];
     
     return _fruitsFetchedResultController;
 }
@@ -175,7 +200,10 @@
 #pragma mark - FruitInformDelegate
 - (void)saveFruitWithName:(NSString *)name fruitNote:(NSString *)fruitNote andPricePerKilogram:(float)price
 {
-    Fruits *fruit = [[Fruits alloc] initWithEntity:[NSEntityDescription entityForName:@"Fruits" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
+    Fruits *fruit = [[Fruits alloc] initWithEntity:[NSEntityDescription 
+                                                    entityForName:@"Fruits" 
+                                                    inManagedObjectContext:self.managedObjectContext] 
+                    insertIntoManagedObjectContext:self.managedObjectContext];
     
     fruit.name = name;
     fruit.pricePerKilogram = [NSNumber numberWithFloat:price];
