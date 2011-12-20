@@ -99,18 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				AED7F871142C37B0003522F6 /* Resources */,
-				AE120A84142721EE0016FBC7 /* FruitsAppDelegate.h */,
-				AE120A85142721EE0016FBC7 /* FruitsAppDelegate.m */,
-				AE120A87142721EE0016FBC7 /* MainWindow.xib */,
-				AE120A8A142721EE0016FBC7 /* Fruits.xcdatamodeld */,
-				AE120A92142722300016FBC7 /* Fruits.h */,
-				AE120A93142722300016FBC7 /* Fruits.m */,
+				AE1F928A14A02E180050198B /* Application Delegate */,
 				AE120A7C142721EE0016FBC7 /* Supporting Files */,
-				AE120A95142722440016FBC7 /* FruitsViewController.h */,
-				AE120A96142722440016FBC7 /* FruitsViewController.m */,
-				AE120A98142722D70016FBC7 /* AddNewFruitInformationViewController.h */,
-				AE120A99142722D70016FBC7 /* AddNewFruitInformationViewController.m */,
-				AE120A9B142722EC0016FBC7 /* FruitInformDelegate.h */,
+				AE1F928D14A02E450050198B /* Controller */,
 			);
 			path = Fruits;
 			sourceTree = "<group>";
@@ -126,9 +117,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AE1F928A14A02E180050198B /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				AE120A84142721EE0016FBC7 /* FruitsAppDelegate.h */,
+				AE120A85142721EE0016FBC7 /* FruitsAppDelegate.m */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		AE1F928C14A02E320050198B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				AE120A92142722300016FBC7 /* Fruits.h */,
+				AE120A93142722300016FBC7 /* Fruits.m */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		AE1F928D14A02E450050198B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AE120A95142722440016FBC7 /* FruitsViewController.h */,
+				AE120A96142722440016FBC7 /* FruitsViewController.m */,
+				AE120A98142722D70016FBC7 /* AddNewFruitInformationViewController.h */,
+				AE120A99142722D70016FBC7 /* AddNewFruitInformationViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		AED7F871142C37B0003522F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AE120A9B142722EC0016FBC7 /* FruitInformDelegate.h */,
+				AE1F928C14A02E320050198B /* Entity */,
+				AE120A8A142721EE0016FBC7 /* Fruits.xcdatamodeld */,
+				AE120A87142721EE0016FBC7 /* MainWindow.xib */,
 				AED7F873142C37C0003522F6 /* Icon-72.png */,
 				AED7F874142C37C0003522F6 /* Icon.png */,
 				AED7F875142C37C0003522F6 /* Icon@2x.png */,
@@ -163,6 +187,7 @@
 		AE120A66142721EE0016FBC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Apps Tree";
 			};
 			buildConfigurationList = AE120A69142721EE0016FBC7 /* Build configuration list for PBXProject "Fruits" */;
@@ -282,6 +307,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fruits/Fruits-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Fruits/Fruits-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,6 +320,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fruits/Fruits-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Fruits/Fruits-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
